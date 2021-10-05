@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Navigation } from "./components/Navigation";
+import { TournamentBox } from "./components/TournamentBox";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <div className="w-full h-screen filter md:py-4">
+          {/* <div className="flex  h-screen flex-1 flex-col filter backdrop-filter backdrop-blur-xl"> */}
+          <div className="md:px-5 flex w-full">
+            <Navigation />
+          </div>
+          <TournamentBox />
+          {/* </div> */}
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
