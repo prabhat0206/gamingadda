@@ -13,6 +13,14 @@ module.exports = {
           "url('https://cdn.pixabay.com/photo/2016/11/21/16/48/board-game-1846400_960_720.jpg')",
       },
     },
+    maxHeight: {
+      0: "0",
+      "1/4": "25%",
+      "1/2": "50%",
+      "3/4": "75%",
+      "80per": "80%",
+      "90per": "90%",
+    },
   },
   variants: {
     extend: {},
