@@ -25,20 +25,20 @@ export class Notification extends React.Component {
   }
   componentDidMount() {
     this.getTopPlayers();
-    // const socket = io(socket_url);
-    // socket.on("all_recent", (msg) => {
-    //   this.setState({
-    //     notifications: msg.message,
-    //     isLoadingNotifications: false,
-    //   });
-    // });
-    // socket.on("notification", (msg) => {
-    //   let notifications = this.state.notifications;
-    //   notifications.unshift(msg.message);
-    //   this.setState({
-    //     notifications: notifications,
-    //   });
-    // });
+    const socket = io(socket_url);
+    socket.on("all_recent", (msg) => {
+      this.setState({
+        notifications: msg.message,
+        isLoadingNotifications: false,
+      });
+    });
+    socket.on("notification", (msg) => {
+      let notifications = this.state.notifications;
+      notifications.unshift(msg.message);
+      this.setState({
+        notifications: notifications,
+      });
+    });
   }
   getTopPlayers() {
     fetch(backend_url + "top_players")
