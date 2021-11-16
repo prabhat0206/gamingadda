@@ -1,7 +1,7 @@
 import React from "react";
-import { backend_url, socket_url } from "../connections/backend";
+import { backend_url } from "../connections/backend";
 import { Players, PlayerLoading } from "./Players";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 interface State {
   isLoading: boolean;
@@ -25,20 +25,20 @@ export class Notification extends React.Component {
   }
   componentDidMount() {
     this.getTopPlayers();
-    const socket = io(socket_url);
-    socket.on("all_recent", (msg) => {
-      this.setState({
-        notifications: msg.message,
-        isLoadingNotifications: false,
-      });
-    });
-    socket.on("notification", (msg) => {
-      let notifications = this.state.notifications;
-      notifications.unshift(msg.message);
-      this.setState({
-        notifications: notifications,
-      });
-    });
+    // const socket = io(socket_url);
+    // socket.on("all_recent", (msg) => {
+    //   this.setState({
+    //     notifications: msg.message,
+    //     isLoadingNotifications: false,
+    //   });
+    // });
+    // socket.on("notification", (msg) => {
+    //   let notifications = this.state.notifications;
+    //   notifications.unshift(msg.message);
+    //   this.setState({
+    //     notifications: notifications,
+    //   });
+    // });
   }
   getTopPlayers() {
     fetch(backend_url + "top_players")
