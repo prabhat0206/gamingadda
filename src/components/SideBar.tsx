@@ -1,23 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export class Sidebar extends React.Component {
   render() {
     return (
       <>
         <div
-          className="flex xl:w-80 w-full text-white absolute bg-black bg-opacity-80 -translate-x-full inset-y-0 z-50 left-0 transform  transition duration-200 ease-in-out
-         xl:-translate-x-0 xl:relative sidebar
+          className="flex xl:w-80 w-full text-white absolute bg-black md:bg-opacity-70 inset-y-0 z-20 xl:z-0 left-0 transform  transition duration-200 ease-in-out
+         xl:-translate-x-0 xl:relative sidebar backdrop-filter backdrop-blur-lg -translate-x-full
         "
         >
-          <div className="w-4/5 sm:w-3/5 xl:w-full bg-black p-5 inset-y-0 h-full">
-            <div className="w-full mt-2 px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200">
+          <div className="block top-10 right-10 fixed close xl:hidden">
+            <i className="fas fa-times text-white text-xl"></i>
+          </div>
+          <div className="w-4/5 sm:w-3/5 xl:w-full p-5 inset-y-0 h-full">
+            <Link
+              to="/"
+              className="w-full mt-2 px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
+            >
               <i className="fas fa-home pr-2"></i>
               <h1>Home</h1>
-            </div>
-            <div className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200">
+            </Link>
+            <Link
+              to="/profile"
+              className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
+            >
+              <i className="fas fa-user-circle pr-2"></i>
+              <h1>Profile</h1>
+            </Link>
+            <Link
+              to="/history"
+              className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
+            >
               <i className="fas fa-history pr-2"></i>
               <h1>History</h1>
-            </div>
+            </Link>
+            <Link
+              to="/terms_and_conditions"
+              className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
+            >
+              <i className="fas fa-file-word pr-2"></i>
+              <h1>Terms and Conditions</h1>
+            </Link>
+            <Link
+              to="/privacy_policy"
+              className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
+            >
+              <i className="fas fa-shield-alt pr-2"></i>
+              <h1>Privacy Policy</h1>
+            </Link>
           </div>
           <div className="w-1/5 sm:w-full xl:w-0 h-full blank"></div>
         </div>
