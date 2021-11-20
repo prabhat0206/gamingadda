@@ -107,14 +107,13 @@ export class TournamentBox extends React.Component<Props> {
           {!this.state.isLoading
             ? this.state.all_tournament.map((tournament: Tournament) => {
                 return this.checkStartTime(tournament.start_time) ? (
-                  <>
+                  <div key={tournament.id}>
                     <h1 className="py-2 font-semibold text-xl w-full border-b-2 mb-4 text-white">
                       Live Contests{" "}
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-green-200"></span>
                       <span className="animate-ping absolute inline-flex h-20 w-20 top-0 left-0 rounded-full bg-green-200 opacity-75"></span>
                     </h1>
                     <Contests
-                      key={tournament.id}
                       tournament={tournament}
                       user={this.props.user}
                       enteryFunction={this.props.enteryFunction}
@@ -122,7 +121,7 @@ export class TournamentBox extends React.Component<Props> {
                       canRefreshAction={this.canRefreshAction.bind(this)}
                       isAuthenticated={this.props.isAuthenticated}
                     />
-                  </>
+                  </div>
                 ) : null;
               })
             : null}

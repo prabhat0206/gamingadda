@@ -30,8 +30,8 @@ class App extends React.Component {
     this.checkUser();
     this.getWallet();
   }
-  checkUser() {
-    fetch(backend_url + "auth/login/success", {
+  async checkUser() {
+    await fetch(backend_url + "auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -47,7 +47,9 @@ class App extends React.Component {
         }
       })
       .then((response) => {
-        this.setState({ authenticated: true, user: response.user });
+        if (response.success) {
+          this.setState({ authenticated: true, user: response.user });
+        }
       })
       .catch((error) => {
         this.setState({ authenticated: false, error: error });

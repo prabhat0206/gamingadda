@@ -5,7 +5,7 @@ export class Privacy extends Component {
   render() {
     return (
       <>
-        <title>Privacy Policy - Virtual Fight Gaming Arena</title>;
+        <title>Privacy Policy - Virtual Fight Gaming Arena</title>
         <div className="w-full h-full p-1">
           <div className="bg-gray-50 w-full h-full rounded-lg bg-opacity-30">
             <div className="w-full overflow-y-auto flex flex-col justify-center text-white">

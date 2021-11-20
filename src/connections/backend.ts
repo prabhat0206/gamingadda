@@ -1,2 +1,2 @@
-export const backend_url = "https://virtual-fight.vercel.app/";
-export const socket_url = "https://virtual-fight.vercel.app/";
+export const backend_url = "https://virtual-fight.herokuapp.com/";
+// export const backend_url = "http://localhost:8000/";
