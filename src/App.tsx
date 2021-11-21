@@ -97,7 +97,7 @@ class App extends React.Component {
           <div className="flex flex-1 flex-shrink-0 overflow-auto">
             <Sidebar />
 
-            <div className="flex h-full flex-1 flex-col flex-grow filter backdrop-filter backdrop-blur-xl overflow-y-auto">
+            <div className="flex h-full flex-1 flex-col flex-grow filter backdrop-filter overscroll-y-auto backdrop-blur-xl overflow-y-auto">
               <MainRouter
                 user={this.state.user}
                 walletAction={this.getWallet.bind(this)}

@@ -16,15 +16,12 @@ interface Props {
 export class Contests extends React.Component<Props> {
   checkColor() {
     if (
-      moment(this.props.tournament.start_time).valueOf() > moment().valueOf()
+      moment(this.props.tournament.start_time).valueOf() < moment().valueOf() &&
+      !this.props.tournament.isClosed
     ) {
-      return "gray-100";
+      return "green-200";
     } else {
-      if (this.props.tournament.isClosed) {
-        return "red-100";
-      } else {
-        return "green-200";
-      }
+      return "gray-100";
     }
   }
   checkTime() {
