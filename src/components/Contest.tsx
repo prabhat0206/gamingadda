@@ -137,7 +137,8 @@ export class Contests extends React.Component<Props> {
                   ) ? (
                     <h1 className="text-sm">Already enrolled</h1>
                   ) : parseInt(this.props.tournament.capacity) ===
-                    this.props.tournament.currently_joined ? null : (
+                    this.props.tournament
+                      .currently_joined ? null : !this.checkTime() ? null : (
                     <button
                       onClick={() => {
                         this.props.enteryFunction(this.props.tournament.id);
