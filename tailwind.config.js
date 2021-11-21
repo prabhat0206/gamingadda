@@ -21,6 +21,9 @@ module.exports = {
       "80per": "80%",
       "90per": "90%",
     },
+    minHeight: {
+      fill: "-webkit-fill-available",
+    },
   },
   variants: {
     extend: {},

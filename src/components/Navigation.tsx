@@ -65,9 +65,9 @@ export class Navigation extends React.Component<Props> {
       <div className="w-full h-18 bg-opacity-70 flex items-center bg-black py-2 filter px-5 md:drop-shadow-md">
         <div className="flex flex-1 justify-start items-center">
           <i className="fas fa-bars mr-4 text-red-600 xl:hidden"></i>
-          <div className="flex justify-center items-center">
+          <div className="flex flex-1 items-center">
             <img src={Logo} alt="" className="w-10 h-10" />
-            <h1 className="font-bold font-sans text-red-600 sm:text-3xl text-xl ml-2">
+            <h1 className="font-bold font-sans text-red-600 sm:text-3xl text-sm sm:ml-2">
               Virtual Fight
             </h1>
           </div>
@@ -126,7 +126,7 @@ export class Navigation extends React.Component<Props> {
           ) : (
             <>
               <button
-                className=" sm:mr-4 bg-green-600 p-2 rounded-lg px-4 transition duration-200 hover:bg-green-200 hover:text-black ease-in-out"
+                className="sm:mr-4 bg-green-600 p-2 rounded-lg px-4 transition duration-200 hover:bg-green-200 hover:text-black ease-in-out"
                 onClick={Navigation._handleSignInClick}
               >
                 Sign In

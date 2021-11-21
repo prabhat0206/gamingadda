@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { isDesktop } from "react-device-detect";
 
 export class Sidebar extends React.Component {
+  hidePanel = () => {
+    const bar = document.querySelector(".sidebar");
+    if (!isDesktop) {
+      bar?.classList.toggle("-translate-x-full");
+    }
+  };
   render() {
     return (
       <>
@@ -16,6 +23,7 @@ export class Sidebar extends React.Component {
           <div className="w-4/5 sm:w-3/5 xl:w-full p-5 inset-y-0 h-full">
             <Link
               to="/"
+              onClick={this.hidePanel}
               className="w-full mt-2 px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
             >
               <i className="fas fa-home pr-2"></i>
@@ -23,6 +31,7 @@ export class Sidebar extends React.Component {
             </Link>
             <Link
               to="/profile"
+              onClick={this.hidePanel}
               className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
             >
               <i className="fas fa-user-circle pr-2"></i>
@@ -30,6 +39,7 @@ export class Sidebar extends React.Component {
             </Link>
             <Link
               to="/history"
+              onClick={this.hidePanel}
               className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
             >
               <i className="fas fa-history pr-2"></i>
@@ -37,6 +47,7 @@ export class Sidebar extends React.Component {
             </Link>
             <Link
               to="/terms_and_conditions"
+              onClick={this.hidePanel}
               className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
             >
               <i className="fas fa-file-word pr-2"></i>
@@ -44,6 +55,7 @@ export class Sidebar extends React.Component {
             </Link>
             <Link
               to="/privacy_policy"
+              onClick={this.hidePanel}
               className="w-full mt-2  px-5 py-3 rounded-md font-semibold flex items-center hover:bg-red-400 transition duration-200"
             >
               <i className="fas fa-shield-alt pr-2"></i>

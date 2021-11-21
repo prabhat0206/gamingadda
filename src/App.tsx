@@ -47,6 +47,10 @@ class App extends React.Component {
       });
   }
 
+  checkHight() {
+    return window.innerHeight;
+  }
+
   handleNotAuthenticated() {
     this.setState({ authenticated: false });
   }
@@ -77,7 +81,10 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className=" w-full flex h-screen filter bg-game overflow-hidden flex-col">
+        <div
+          className=" w-full flex filter bg-game overflow-hidden flex-col"
+          style={{ height: this.checkHight() }}
+        >
           <div className="flex w-full backdrop-filter backdrop-blur-lg">
             <Navigation
               isAuthenticated={this.state.authenticated}
