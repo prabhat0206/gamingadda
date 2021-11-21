@@ -62,7 +62,7 @@ export class FillBalance extends React.Component<Props> {
     const { amount, phoneNumber } = this.state;
     const { user } = this.props;
     const key = "W1udhf";
-    const txnid = Date.now().toString() + user.id.slice(0, 5);
+    const txnid = Date.now().toString() + user.user_id.slice(0, 5);
     const hashString = generateHash({
       txnid: txnid,
       amount: amount.toString(),
@@ -70,8 +70,8 @@ export class FillBalance extends React.Component<Props> {
       firstname: user.name,
       email: user.email,
     });
-    const surl = `http://localhost:8000/auth/transcations/success/${txnid}/${amount}`;
-    const furl = `http://localhost:8000/auth/transcations/fail/${txnid}/${amount}`;
+    const surl = `${backend_url}auth/transcations/success/${txnid}/${amount}`;
+    const furl = `${backend_url}auth/transcations/fail/${txnid}/${amount}`;
     const params = [
       {
         name: "key",

@@ -21,7 +21,7 @@ export class Contests extends React.Component<Props> {
       return "gray-100";
     } else {
       if (this.props.tournament.isClosed) {
-        return "yellow-200";
+        return "red-100";
       } else {
         return "green-200";
       }
