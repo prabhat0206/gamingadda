@@ -217,7 +217,7 @@ export const InternalContests = (props: any) => {
         console.error(error);
       });
   }, [contest_id]);
-  const { emails }: any = props.user;
+  const { email }: any = props.user;
   return isLoading ? (
     <div className=" animate-pulse w-full py-5 flex flex-1 px-5 flex-col">
       <div className="py-2 font-semibold text-xl w-full border-b-2 mb-4 text-white flex items-center">
@@ -292,7 +292,7 @@ export const InternalContests = (props: any) => {
             <div className="p-3 font-bold rounded-lg transition ease-in-out duration-300">
               {data.winner} is the winner
             </div>
-          ) : data.players.some((a: any) => a.email === emails[0].value) ? (
+          ) : data.players.some((a: any) => a.email === email) ? (
             <h1>You are already enrolled</h1>
           ) : parseInt(data.capacity) === data.currently_joined ? (
             <span className="md:text-lg font-semibold">Room Full</span>

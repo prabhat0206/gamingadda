@@ -16,10 +16,10 @@ interface Props {
 }
 
 interface User {
-  displayName: string;
+  name: string;
   id: string;
-  emails: any[];
-  photos: any[];
+  email: string;
+  profile_picture: string;
 }
 
 export class Navigation extends React.Component<Props> {
@@ -77,15 +77,13 @@ export class Navigation extends React.Component<Props> {
             <>
               <div className="hidden sm:flex">
                 <img
-                  src={this.props.user.photos[0].value}
+                  src={this.props.user.profile_picture}
                   alt=""
                   className="w-10 h-10 rounded-full"
                 />
                 <div className="pl-2 hidden lg:block">
-                  <h2 className="text-lg">{this.props.user.displayName}</h2>
-                  <h3 className=" text-xs">
-                    {this.props.user.emails[0].value}
-                  </h3>
+                  <h2 className="text-lg">{this.props.user.name}</h2>
+                  <h3 className=" text-xs">{this.props.user.email}</h3>
                 </div>
               </div>
               {this.props.isWalletLoading ? (
@@ -110,7 +108,7 @@ export class Navigation extends React.Component<Props> {
               <a
                 className="hidden sm:block ml-4 bg-red-600 p-2 rounded-lg transition duration-200 hover:bg-red-200 hover:text-black ease-in-out"
                 href="#h"
-                onClick={this._handleLogoutClick}
+                onClick={this._handleLogoutClick.bind(this)}
               >
                 Logout
               </a>
@@ -119,7 +117,7 @@ export class Navigation extends React.Component<Props> {
                 onClick={UserModal.showHideUserModal}
               >
                 <img
-                  src={this.props.user.photos[0].value}
+                  src={this.props.user.profile_picture}
                   alt=""
                   className="w-10 h-10 rounded-full"
                 />
@@ -163,16 +161,14 @@ export class UserModal extends React.Component<Props> {
           <div className="bg-black bg-opacity-80 mt-1 rounded-lg text-white px-2 ease-in-out transition-all duration-200">
             <div className="flex justify-center items-center">
               <img
-                src={this.props.user.photos[0].value}
+                src={this.props.user.profile_picture}
                 alt=""
                 className=" w-20 h-20 rounded-full mt-3"
               />
             </div>
             <div className="w-full p-2 flex justify-center items-center flex-col">
-              <span className="font-semibold">
-                {this.props.user.displayName}
-              </span>
-              <span>{this.props.user.emails[0].value}</span>
+              <span className="font-semibold">{this.props.user.name}</span>
+              <span>{this.props.user.email}</span>
             </div>
             <hr color="white" />
             <div className="w-full p-2 px-3 flex flex-col justify-center items-center">

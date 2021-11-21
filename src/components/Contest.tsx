@@ -136,7 +136,7 @@ export class Contests extends React.Component<Props> {
               <div className="flex-1 items-center justify-end flex">
                 {this.props.isAuthenticated ? (
                   this.props.tournament.players.some(
-                    (p) => p.email === this.props.user.emails[0].value
+                    (p) => p.email === this.props.user.email
                   ) ? (
                     <h1 className="text-sm">Already enrolled</h1>
                   ) : parseInt(this.props.tournament.capacity) ===

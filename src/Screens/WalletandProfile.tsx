@@ -75,16 +75,14 @@ export class Wallet extends React.Component<Props> {
             <div className="flex w-full py-5 flex-col sm:flex-row items-center">
               <div className="flex">
                 <img
-                  src={this.props.user.photos[0].value}
+                  src={this.props.user.profile_picture}
                   alt=""
                   className=" w-36 h-36 rounded-full"
                 />
               </div>
               <div className="flex text-white sm:px-5 justify-center flex-col">
-                <h1 className="text-xl font-bold">
-                  {this.props.user.displayName}
-                </h1>
-                <h1>{this.props.user.emails[0].value}</h1>
+                <h1 className="text-xl font-bold">{this.props.user.name}</h1>
+                <h1>{this.props.user.email}</h1>
                 <h1 className="mt-1">
                   Free fire ID:{" "}
                   {this.state.isLoading ? (

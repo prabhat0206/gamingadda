@@ -67,8 +67,8 @@ export class FillBalance extends React.Component<Props> {
       txnid: txnid,
       amount: amount.toString(),
       productinfo: "wallet",
-      firstname: user.displayName,
-      email: user.emails[0].value,
+      firstname: user.name,
+      email: user.email,
     });
     const surl = `http://localhost:8000/auth/transcations/success/${txnid}/${amount}`;
     const furl = `http://localhost:8000/auth/transcations/fail/${txnid}/${amount}`;
@@ -91,11 +91,11 @@ export class FillBalance extends React.Component<Props> {
       },
       {
         name: "email",
-        value: user.emails[0].value,
+        value: user.email,
       },
       {
         name: "firstname",
-        value: user.displayName,
+        value: user.name,
       },
       {
         name: "phone",
@@ -214,7 +214,7 @@ class TranscationsIdentityfier extends React.Component<TranscationsIdentityfierP
 
   async componentDidMount() {
     await this.getTransactionDetails();
-    this.setState({ user_first_name: this.props.user.displayName });
+    this.setState({ user_first_name: this.props.user.name });
   }
 
   async getTransactionDetails() {

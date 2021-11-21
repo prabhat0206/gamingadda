@@ -5,6 +5,7 @@ import { Navigation, UserModal } from "./components/Navigation";
 import { backend_url } from "./connections/backend";
 import { BrowserRouter } from "react-router-dom";
 import { MainRouter } from "./Routes/MainRoute";
+import axios, { AxiosResponse } from "axios";
 
 interface State {
   user: any;
@@ -26,29 +27,19 @@ class App extends React.Component {
       wallet: 0,
     };
   }
-  componentDidMount() {
+  async componentDidMount() {
     this.checkUser();
     this.getWallet();
   }
-  async checkUser() {
-    await fetch(backend_url + "auth/login/success", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          throw new Error("failed to authenticate user");
-        }
-      })
-      .then((response) => {
-        if (response.success) {
-          this.setState({ authenticated: true, user: response.user });
+  checkUser() {
+    axios(backend_url + "auth/login/success", { withCredentials: true })
+      .then((response: AxiosResponse) => {
+        if (response.data) {
+          if (response.data.success) {
+            this.setState({ user: response.data.user, authenticated: true });
+          } else {
+            this.setState({ authenticated: false });
+          }
         }
       })
       .catch((error) => {
@@ -91,7 +82,7 @@ class App extends React.Component {
             <Navigation
               isAuthenticated={this.state.authenticated}
               user={this.state.user}
-              handleNotAuthenticated={this.handleNotAuthenticated}
+              handleNotAuthenticated={this.handleNotAuthenticated.bind(this)}
               isWalletLoading={this.state.isWalletLoading}
               wallet={this.state.wallet}
             />

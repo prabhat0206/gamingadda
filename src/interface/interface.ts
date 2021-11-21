@@ -1,8 +1,8 @@
 export interface User {
-  displayName: string;
+  name: string;
   id: string;
-  emails: any[];
-  photos: any[];
+  email: string;
+  profile_picture: string;
 }
 
 export interface Tournament {
