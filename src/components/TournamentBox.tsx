@@ -103,7 +103,7 @@ export class TournamentBox extends React.Component<Props> {
             canRefreshAction={this.canRefreshAction.bind(this)}
           />
         ) : null}
-        <div className="w-full py-5 flex flex-1 px-5 flex-col ">
+        <div className="w-full pb-2 pt-5 flex flex-1 px-5 flex-col ">
           {!this.state.isLoading
             ? this.state.all_tournament.map((tournament: Tournament) => {
                 return this.checkStartTime(tournament.start_time) ? (
@@ -125,9 +125,7 @@ export class TournamentBox extends React.Component<Props> {
                 ) : null;
               })
             : null}
-          <h1 className="py-2 font-semibold text-xl w-full border-b-2 mb-4 text-white">
-            Upcoming Contests
-          </h1>
+
           {this.state.isLoading ? (
             <div>
               <ContestLoader />
@@ -135,23 +133,28 @@ export class TournamentBox extends React.Component<Props> {
               <ContestLoader />
             </div>
           ) : this.state.isConnected ? (
-            <div className="flex flex-col pr-2">
-              {this.state.all_tournament
-                .reverse()
-                .map((tournament: Tournament) => {
-                  return !this.checkStartTime(tournament.start_time) ? (
-                    <Contests
-                      key={tournament.id}
-                      tournament={tournament}
-                      user={this.props.user}
-                      enteryFunction={this.props.enteryFunction}
-                      isEnrolling={this.props.isEnrolling}
-                      canRefreshAction={this.canRefreshAction.bind(this)}
-                      isAuthenticated={this.props.isAuthenticated}
-                    />
-                  ) : null;
-                })}
-            </div>
+            <>
+              <h1 className="py-2 font-semibold text-xl w-full border-b-2 mb-4 text-white">
+                Upcoming Contests
+              </h1>
+              <div className="flex flex-col pr-2">
+                {this.state.all_tournament
+                  .reverse()
+                  .map((tournament: Tournament) => {
+                    return !this.checkStartTime(tournament.start_time) ? (
+                      <Contests
+                        key={tournament.id}
+                        tournament={tournament}
+                        user={this.props.user}
+                        enteryFunction={this.props.enteryFunction}
+                        isEnrolling={this.props.isEnrolling}
+                        canRefreshAction={this.canRefreshAction.bind(this)}
+                        isAuthenticated={this.props.isAuthenticated}
+                      />
+                    ) : null;
+                  })}
+              </div>
+            </>
           ) : (
             <div className="flex flex-1 justify-center items-center flex-col text-white">
               <span className="text-6xl mb-4">
@@ -162,9 +165,9 @@ export class TournamentBox extends React.Component<Props> {
           )}
         </div>
         {this.state.isConnected ? (
-          <div className="w-full py-5 flex flex-1 px-5 flex-col ">
+          <div className="w-full pb-5 pt-1 flex flex-1 px-5 flex-col ">
             {!(this.state.played_games.length > 0) ? null : (
-              <h1 className="py-2 font-semibold text-xl w-full border-b-2 mb-4 text-white">
+              <h1 className=" font-semibold text-xl w-full border-b-2 mb-4 text-white">
                 Recently Played Games
               </h1>
             )}
